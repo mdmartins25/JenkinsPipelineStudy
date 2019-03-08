@@ -5,9 +5,7 @@ pipeline {
 	parameters {
 		choice(name: 'Select_test',
 			choices: 'AllUnitTests\nCommonCode\nCommonComp\nInfra\nKomponents',
-			description: 'which test to choose?')
-			
-			
+			description: 'which test to choose?')		
 	}
 	
     stages {
@@ -19,7 +17,6 @@ pipeline {
 		stage('commonCode') {
 			steps {
 				echo "CommonCode ${params.Select_test}"
-			
 			}
 		}
 		
@@ -50,7 +47,7 @@ pipeline {
 			steps {
 				echo "komponents ${params.Select_test}"			
 			}
-		}
+	}
 		
 
     /////////////////////////////////////////////////////////////////////////// 
@@ -72,7 +69,7 @@ pipeline {
     /////////////////////////////////////////////////////////////////////////// 
     ///////////////////////////////////////////////////////////////////////////           
         
-    }// end of states
+    }
     
 
        
