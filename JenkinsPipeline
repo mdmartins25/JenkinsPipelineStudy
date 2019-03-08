@@ -5,15 +5,9 @@ pipeline {
 	parameters {
 		choice(name: 'Select_test',
 			choices: 'AllUnitTests\nCommonCode\nCommonComp\nInfra\nKomponents',
-			description: 'which test to choose?')
-			
-			
+			description: 'which test to choose?')		
 	}
 	
-
-    options { 
-        disableConcurrentBuilds() 
-    }
     stages {
 	
 	/////////////////////////////////////////////////////////////////////////// 
@@ -23,12 +17,6 @@ pipeline {
 		stage('commonCode') {
 			steps {
 				echo "CommonCode ${params.Select_test}"
-				sh '''
-                 ./builddockercomposerscript.sh CommonCode 
-				'''
-				sh '''
-					docker-compose -f run-all-unit-tests.yml up  --force-recreate
-                '''
 			}
 		}
 		
@@ -39,12 +27,7 @@ pipeline {
 		stage('commonComp') {
 			steps {
 				echo "commonUnit ${params.Select_test}"
-				sh '''
-				./builddockercomposerscript.sh commonComp
-				'''
-				sh '''
-					docker-compose -f run-all-unit-tests.yml up  --force-recreate
-                '''
+				
 			}
 		}
 	/////////////////////////////////////////////////////////////////////////// 
@@ -53,13 +36,7 @@ pipeline {
 	
 		stage('infra') {
 			steps {
-				echo "infra ${params.Select_test}"
-				sh '''
-				./builddockercomposerscript.sh Infra
-				'''
-				sh '''
-					docker-compose -f run-all-unit-tests.yml up  --force-recreate
-                '''
+				echo "infra ${params.Select_test}"			
 			}
 		}
 	/////////////////////////////////////////////////////////////////////////// 
@@ -68,15 +45,9 @@ pipeline {
 	
 		stage('komponents') {
 			steps {
-				echo "komponents ${params.Select_test}"
-				sh '''
-				./builddockercomposerscript.sh komponents
-				'''
-				sh '''
-					docker-compose -f run-all-unit-tests.yml up  --force-recreate
-                '''
+				echo "komponents ${params.Select_test}"			
 			}
-		}
+	}
 		
 
     /////////////////////////////////////////////////////////////////////////// 
@@ -84,25 +55,9 @@ pipeline {
     /////////////////////////////////////////////////////////////////////////// 
 
         stage('Unit Tests'){
-		    options { skipDefaultCheckout() }
             agent any;
             steps {
-				sh '''
-                 find  -type f -iname "*.sh" -exec chmod +x {} \\;
-                '''
-				sh '''
-                 ./builddockercomposerscript.sh 
-				'''
-				sh '''
-					docker network prune -f
-                '''
-				sh '''
-					docker-compose -f run-all-unit-tests.yml up  --force-recreate
-                '''
-            }
-            post {
-              always {
-                junit '**/*_skipped.xml'
+				echo "Run All Tests"
               }
             }
         }
@@ -112,13 +67,10 @@ pipeline {
 
     /////////////////////////////////////////////////////////////////////////// 
     /////////////////////////////////////////////////////////////////////////// 
-    /////////////////////////////////////////////////////////////////////////// 
-
-    
-                
+    ///////////////////////////////////////////////////////////////////////////           
         
-    }// end of states
+    }
     
 
        
-}
+
