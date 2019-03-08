@@ -10,10 +10,7 @@ pipeline {
 			
 	}
 	
-
-    options { 
-        disableConcurrentBuilds() 
-    }
+    
     stages {
 	
 	/////////////////////////////////////////////////////////////////////////// 
@@ -23,12 +20,7 @@ pipeline {
 		stage('commonCode') {
 			steps {
 				echo "CommonCode ${params.Select_test}"
-				sh '''
-                 ./builddockercomposerscript.sh CommonCode 
-				'''
-				sh '''
-					docker-compose -f run-all-unit-tests.yml up  --force-recreate
-                '''
+			
 			}
 		}
 		
@@ -39,12 +31,7 @@ pipeline {
 		stage('commonComp') {
 			steps {
 				echo "commonUnit ${params.Select_test}"
-				sh '''
-				./builddockercomposerscript.sh commonComp
-				'''
-				sh '''
-					docker-compose -f run-all-unit-tests.yml up  --force-recreate
-                '''
+				
 			}
 		}
 	/////////////////////////////////////////////////////////////////////////// 
@@ -54,12 +41,7 @@ pipeline {
 		stage('infra') {
 			steps {
 				echo "infra ${params.Select_test}"
-				sh '''
-				./builddockercomposerscript.sh Infra
-				'''
-				sh '''
-					docker-compose -f run-all-unit-tests.yml up  --force-recreate
-                '''
+				
 			}
 		}
 	/////////////////////////////////////////////////////////////////////////// 
@@ -69,12 +51,7 @@ pipeline {
 		stage('komponents') {
 			steps {
 				echo "komponents ${params.Select_test}"
-				sh '''
-				./builddockercomposerscript.sh komponents
-				'''
-				sh '''
-					docker-compose -f run-all-unit-tests.yml up  --force-recreate
-                '''
+				
 			}
 		}
 		
@@ -87,22 +64,7 @@ pipeline {
 		    options { skipDefaultCheckout() }
             agent any;
             steps {
-				sh '''
-                 find  -type f -iname "*.sh" -exec chmod +x {} \\;
-                '''
-				sh '''
-                 ./builddockercomposerscript.sh 
-				'''
-				sh '''
-					docker network prune -f
-                '''
-				sh '''
-					docker-compose -f run-all-unit-tests.yml up  --force-recreate
-                '''
-            }
-            post {
-              always {
-                junit '**/*_skipped.xml'
+				echo "Run All Tests"
               }
             }
         }
