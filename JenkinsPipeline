@@ -4,7 +4,7 @@ pipeline {
 
 	parameters {
 		choice(name: 'Select_test',
-			choices: 'AllUnitTests\nCommonCode\nCommonComp\nInfra\nKomponents',
+			choices: ['AllUnitTests', 'CommonCode', 'CommonComp', 'Infra', 'Komponents'],
 			description: 'which test to choose?')		
 	}
 	
@@ -45,7 +45,7 @@ pipeline {
 				expression { params.Select_test == 'Infra'}
 			}
 			steps {
-				echo "{the test selected was ${params.Select_test}"			
+				echo "the test selected was ${params.Select_test}"			
 			}
 		}
 	/////////////////////////////////////////////////////////////////////////// 
