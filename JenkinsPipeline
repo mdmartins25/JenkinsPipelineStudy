@@ -4,7 +4,7 @@ pipeline {
 
 	parameters {
 		choice(name: 'Select_test',
-			choices: ['CommonCode', 'CommonComp', 'Infra', 'Komponents'],
+			choices: ['All', 'CommonCode', 'CommonComp', 'Infra', 'Komponents'],
 			description: 'which test to choose?')		
 	}
 	
@@ -16,7 +16,7 @@ pipeline {
 	
 		stage('commonCode') {
 			when {
-				expression { params.Select_test == 'CommonCode' || params.Select_test == ''}
+				expression { params.Select_test == 'CommonCode' || 'All'}
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"
@@ -29,7 +29,7 @@ pipeline {
 	
 		stage('commonComp') {
 			when {
-				expression { params.Select_test == 'CommonComp' || params.Select_test == ''}
+				expression { params.Select_test == 'CommonComp' || 'All'}
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"
@@ -42,7 +42,7 @@ pipeline {
 	
 		stage('infra') {
 			when {
-				expression { params.Select_test == 'Infra' || params.Select_test == ''}
+				expression { params.Select_test == 'Infra' || 'All'}
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"			
@@ -54,7 +54,7 @@ pipeline {
 	
 		stage('komponents') {
 			when {
-				expression { params.Select_test == 'Komponents' || params.Select_test == ''}
+				expression { params.Select_test == 'Komponents' || 'All'}
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"			
