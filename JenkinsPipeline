@@ -19,7 +19,7 @@ pipeline {
 				expression { params.Select_test == 'CommonCode'}
 			}
 			steps {
-				echo "${params.Select_test}"
+				echo "the test selected was ${params.Select_test}"
 			}
 		}
 		
@@ -32,7 +32,7 @@ pipeline {
 				expression { params.Select_test == 'CommonComp'}
 			}
 			steps {
-				echo "${params.Select_test}"
+				echo "the test selected was ${params.Select_test}"
 				
 			}
 		}
@@ -45,7 +45,7 @@ pipeline {
 				expression { params.Select_test == 'Infra'}
 			}
 			steps {
-				echo "${params.Select_test}"			
+				echo "{the test selected was ${params.Select_test}"			
 			}
 		}
 	/////////////////////////////////////////////////////////////////////////// 
@@ -57,7 +57,7 @@ pipeline {
 				expression { params.Select_test == 'Komponents'}
 			}
 			steps {
-				echo "${params.Select_test}"			
+				echo "the test selected was ${params.Select_test}"			
 			}
 	}
 		
@@ -71,7 +71,7 @@ pipeline {
 				expression { params.Select_test == 'AllUnitTests'}
 			}
             steps {
-				echo "${params.Select_test}"
+				echo "the test selected was ${params.Select_test}"
               }
             }
         }
