@@ -17,11 +17,11 @@ pipeline {
 			}
 			steps {
 				echo "the test selected was ${params.Select_test || params.Select_test == "All"}"
+				/*sh '''
+                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {} 
+                '''*/
 				sh '''
-                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x  
-                '''
-				sh '''
-                 ./builddockercomposerscript.sh CommonCode 
+                 ./C:/Users/Admincliente/Downloads/Ubuntu/rootfs/home/mdmartins/dockertest/builddockercomposerscript.sh CommonCode 
 				'''
 			}
 		}
@@ -34,11 +34,11 @@ pipeline {
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"
+				/*sh '''
+                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {}
+                '''*/
 				sh '''
-                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x  
-                '''
-				sh '''
-                 ./builddockercomposerscript.sh CommonComp 
+                 ./C:/Users/Admincliente/Downloads/Ubuntu/rootfs/home/mdmartins/dockertest/builddockercomposerscript.sh CommonComp 
 				'''
 			}
 		}
@@ -51,11 +51,11 @@ pipeline {
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"
+				/*sh '''
+                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {} 
+                '''*/
 				sh '''
-                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x  
-                '''
-				sh '''
-                 ./builddockercomposerscript.sh Infra 
+                 ./C:/Users/Admincliente/Downloads/Ubuntu/rootfs/home/mdmartins/dockertest/builddockercomposerscript.sh Infra 
 				'''		
 			}
 		}
@@ -67,12 +67,12 @@ pipeline {
 				expression {params.Select_test == 'Komponents' || params.Select_test == "All"}
 			}
 			steps {
-				echo"the test selected was ${params.Select_test}"
+				echo "the test selected was ${params.Select_test}"
+				/*sh '''
+                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {}
+                '''*/			
 				sh '''
-                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x  
-                '''			
-				sh '''
-                 ./builddockercomposerscript.sh Komponents 
+                 ./C:/Users/Admincliente/Downloads/Ubuntu/rootfs/home/mdmartins/dockertest/builddockercomposerscript.sh Komponents 
 				'''
 			}
 		}	         
