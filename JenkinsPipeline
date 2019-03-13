@@ -9,7 +9,7 @@ pipeline {
 	
     stages {
 	
-		//stage for executing the common code
+		
 
 		stage('commonCode') {
 			when {
@@ -26,7 +26,7 @@ pipeline {
 			}
 		}
 		
-		//stage for executing the common comp
+		
 
 		stage('commonComp') {
 			when {
@@ -43,7 +43,7 @@ pipeline {
 			}
 		}
 
-		//stage for executing the infra
+		
 	
 		stage('infra') {
 			when {
@@ -60,7 +60,7 @@ pipeline {
 			}
 		}
 	
-		//stage for executing the komponents
+		
 
 		stage('komponents') {
 			when {
