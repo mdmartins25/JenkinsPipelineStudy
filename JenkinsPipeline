@@ -11,7 +11,7 @@ pipeline {
 	
 		stage('commonCode') {
 			when {
-				expression { params.Select_test == 'CommonCode' || params.Select_test == "All"}
+				expression {params.Select_test == 'CommonCode' || params.Select_test == "All"}
 			}
 			steps {
 				echo "the test selected was ${params.Select_test || params.Select_test == "All"}"
@@ -20,7 +20,7 @@ pipeline {
 		
 		stage('commonComp') {
 			when {
-				expression { params.Select_test == 'CommonComp' || params.Select_test == "All"}
+				expression {params.Select_test == 'CommonComp' || params.Select_test == "All"}
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"
@@ -30,7 +30,7 @@ pipeline {
 	
 		stage('infra') {
 			when {
-				expression { params.Select_test == 'Infra' || paraSelect_test == "All"}
+				expression {params.Select_test == 'Infra' || params.Select_test == "All"}
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"			
@@ -39,7 +39,7 @@ pipeline {
 	
 		stage('komponents') {
 			when {
-				expression { params.Select_test == 'Komponents' || params.Select_test == "All"}
+				expression {params.Select_test == 'Komponents' || params.Select_test == "All"}
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"			
