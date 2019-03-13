@@ -17,10 +17,9 @@ pipeline {
 			}
 			steps {
 				echo "the test selected was ${params.Select_test || params.Select_test == "All"}"
-				/*sh '''
+				sh '''
                  find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {} 
-                '''*/
-				dir("C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\")
+                '''
 				sh '''
                  ./builddockercomposerscript.sh CommonCode 
 				'''
@@ -35,10 +34,10 @@ pipeline {
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"
-				/*sh '''
+				sh '''
                  find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {}
-                '''*/
-				dir("C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\")
+                
+				//dir("C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\")
 				sh '''
                  ./builddockercomposerscript.sh CommonComp 
 				'''
@@ -53,10 +52,10 @@ pipeline {
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"
-				/*sh '''
+				sh '''
                  find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {} 
                 '''*/
-				dir("C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\")
+				//dir("C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\")
 				sh '''
                  ./builddockercomposerscript.sh Infra 
 				'''		
@@ -74,7 +73,7 @@ pipeline {
 				/*sh '''
                  find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {}
                 '''*/	
-				dir("C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\")	
+				//dir("C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\")	
 				sh '''
                   ./builddockercomposerscript.sh Komponents 
 				'''
