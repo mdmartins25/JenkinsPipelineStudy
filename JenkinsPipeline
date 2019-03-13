@@ -31,7 +31,7 @@ pipeline {
 		stage('infra') {
 			when {
 				expression { params.Select_test == 'Infra' || paraSelect_test == "All"}
-			}ms.
+			}
 			steps {
 				echo "the test selected was ${params.Select_test}"			
 			}
