@@ -18,7 +18,7 @@ pipeline {
 			steps {
 				echo "the test selected was ${params.Select_test || params.Select_test == "All"}"
 				sh '''
-                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {} 
+                 find  -type f -iname "builddockercomposerscript.sh" -exec chmod +x {} 
                 '''
 				sh '''
                  ./builddockercomposerscript.sh CommonCode 
@@ -35,7 +35,7 @@ pipeline {
 			steps {
 				echo "the test selected was ${params.Select_test}"
 				sh '''
-                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {}
+                 find  -type f -iname "builddockercomposerscript.sh" -exec chmod +x {}
                 
 				sh '''
                  ./builddockercomposerscript.sh CommonComp 
@@ -52,7 +52,7 @@ pipeline {
 			steps {
 				echo "the test selected was ${params.Select_test}"
 				sh '''
-                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {} 
+                 find  -type f -iname "builddockercomposerscript.sh" -exec chmod +x {} 
                 '''
 				sh '''
                  ./builddockercomposerscript.sh Infra 
@@ -69,7 +69,7 @@ pipeline {
 			steps {
 				echo "the test selected was ${params.Select_test}"
 				sh '''
-                 find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {}
+                 find  -type f -iname "builddockercomposerscript.sh" -exec chmod +x {}
                 '''	
 				sh '''
                   ./builddockercomposerscript.sh Komponents 
