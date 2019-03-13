@@ -21,7 +21,7 @@ pipeline {
                  find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {} 
                 '''*/
 				sh '''
-                 ./C:/Users/Admincliente/Downloads/Ubuntu/rootfs/home/mdmartins/dockertest/builddockercomposerscript.sh CommonCode 
+                 ./C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\builddockercomposerscript.sh CommonCode 
 				'''
 			}
 		}
@@ -38,7 +38,7 @@ pipeline {
                  find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {}
                 '''*/
 				sh '''
-                 ./C:/Users/Admincliente/Downloads/Ubuntu/rootfs/home/mdmartins/dockertest/builddockercomposerscript.sh CommonComp 
+                 ./C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\builddockercomposerscript.sh CommonComp 
 				'''
 			}
 		}
@@ -55,7 +55,7 @@ pipeline {
                  find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {} 
                 '''*/
 				sh '''
-                 ./C:/Users/Admincliente/Downloads/Ubuntu/rootfs/home/mdmartins/dockertest/builddockercomposerscript.sh Infra 
+                 ./C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\builddockercomposerscript.sh Infra 
 				'''		
 			}
 		}
@@ -72,7 +72,7 @@ pipeline {
                  find  -type f -name "builddockercomposerscript.sh" -exec chmod +x {}
                 '''*/			
 				sh '''
-                 ./C:/Users/Admincliente/Downloads/Ubuntu/rootfs/home/mdmartins/dockertest/builddockercomposerscript.sh Komponents 
+                 ./C:\Users\Admincliente\Downloads\Ubuntu\rootfs\home\mdmartins\dockertest\builddockercomposerscript.sh Komponents 
 				'''
 			}
 		}	         
