@@ -8,9 +8,6 @@ pipeline {
 				description: 'which test to choose?')		
 		}
 
-		environment {
-			myParam = ''
-		}
 	
     stages {
 
@@ -19,7 +16,7 @@ pipeline {
 				expression {params.Select_test == 'CommonCode' || params.Select_test == "All"}
 			}
 			steps {
-                $myParam = ${params.Select_test}
+                env.myParam = ${params.Select_test}
 			}
 		}
 
@@ -32,7 +29,7 @@ pipeline {
 				expression {params.Select_test == 'CommonComp' || params.Select_test == "All"}
 			}
 			steps {
-                $myParam = ${params.Select_test}
+                env.myParam = ${params.Select_test}
 				
 			}
 		}
@@ -47,7 +44,7 @@ pipeline {
 				expression {params.Select_test == 'Infra' || params.Select_test == "All"}
 			}
 			steps {
-               $myParam = ${params.Select_test}
+               env.myParam = ${params.Select_test}
 			}
 		}
 
@@ -60,14 +57,14 @@ pipeline {
 				expression {params.Select_test == 'Komponents' || params.Select_test == "All"}
 			}
 			steps {
-                $myParam = ${params.Select_test}	
+                env.myParam = ${params.Select_test}	
 			}
 		} 
 	
 		
 			stage('Unit Tests') {
 			steps {
-					echo "will run the test ${myParam}"
+					echo "will run the test ${env.myParam}"
 			}
 		}	         
         
