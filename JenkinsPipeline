@@ -9,77 +9,42 @@ pipeline {
 	
     stages {
 	
-		
-
 		stage('commonCode') {
 			when {
 				expression {params.Select_test == 'CommonCode' || params.Select_test == "All"}
 			}
 			steps {
 				echo "the test selected was ${params.Select_test || params.Select_test == "All"}"
-				sh '''
-                 find  -type f -iname "builddockercomposerscript.sh" -exec chmod +x {} 
-                '''
-				sh '''
-                 ./builddockercomposerscript.sh CommonCode 
-				'''
 			}
 		}
 		
-		
-
 		stage('commonComp') {
 			when {
 				expression {params.Select_test == 'CommonComp' || params.Select_test == "All"}
 			}
 			steps {
 				echo "the test selected was ${params.Select_test}"
-				sh '''
-                 find  -type f -iname "builddockercomposerscript.sh" -exec chmod +x {}
-                
-				sh '''
-                 ./builddockercomposerscript.sh CommonComp 
-				'''
+				
 			}
 		}
-
-		
 	
 		stage('infra') {
 			when {
 				expression {params.Select_test == 'Infra' || params.Select_test == "All"}
 			}
 			steps {
-				echo "the test selected was ${params.Select_test}"
-				sh '''
-                 find  -type f -iname "builddockercomposerscript.sh" -exec chmod +x {} 
-                '''
-				sh '''
-                 ./builddockercomposerscript.sh Infra 
-				'''		
+				echo "the test selected was ${params.Select_test}"			
 			}
 		}
 	
-		
-
 		stage('komponents') {
 			when {
 				expression {params.Select_test == 'Komponents' || params.Select_test == "All"}
 			}
 			steps {
-				echo "the test selected was ${params.Select_test}"
-				sh '''
-                 find  -type f -iname "builddockercomposerscript.sh" -exec chmod +x {}
-                '''	
-				sh '''
-                  ./builddockercomposerscript.sh Komponents 
-				'''
+				echo "the test selected was ${params.Select_test}"			
 			}
 		}	         
         
     }
 }
-    
-
-       
-
