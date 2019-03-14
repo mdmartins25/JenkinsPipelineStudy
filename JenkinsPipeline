@@ -1,50 +1,75 @@
 pipeline {
 
-    agent any;
-	parameters {
-		choice(name: 'Select_test',
-			choices: [ 'All',  'CommonCode', 'CommonComp', 'Infra', 'Komponents'],
-			description: 'which test to choose?')		
-	}
+  	agent any;
+	
+		parameters {
+			choice(name: 'Select_test',
+				choices: [ 'All',  'CommonCode', 'CommonComp', 'Infra', 'Komponents'],
+				description: 'which test to choose?')		
+		}
+
+		environment {
+			my Param = ''
+		}
 	
     stages {
-	
+
 		stage('commonCode') {
 			when {
 				expression {params.Select_test == 'CommonCode' || params.Select_test == "All"}
 			}
 			steps {
-				echo "the test selected was ${params.Select_test || params.Select_test == "All"}"
+                myParam = ${params.Select_test}
 			}
 		}
-		
-		stage('commonComp') {
+
+    /////////////////////////////////////////////////////////////////////////// 
+    /////////////////////////////////////////////////////////////////////////// 
+    ///////////////////////////////////////////////////////////////////////////
+
+    stage('commonComp') {
 			when {
 				expression {params.Select_test == 'CommonComp' || params.Select_test == "All"}
 			}
 			steps {
-				echo "the test selected was ${params.Select_test}"
+                myParam = ${params.Select_test}
 				
 			}
 		}
-	
-		stage('infra') {
+
+
+    /////////////////////////////////////////////////////////////////////////// 
+    /////////////////////////////////////////////////////////////////////////// 
+    /////////////////////////////////////////////////////////////////////////// 
+
+    stage('infra') {
 			when {
 				expression {params.Select_test == 'Infra' || params.Select_test == "All"}
 			}
 			steps {
-				echo "the test selected was ${params.Select_test}"			
+               myParam = ${params.Select_test}
 			}
 		}
-	
-		stage('komponents') {
+
+    /////////////////////////////////////////////////////////////////////////// 
+    /////////////////////////////////////////////////////////////////////////// 
+    /////////////////////////////////////////////////////////////////////////// 
+
+    stage('komponents') {
 			when {
 				expression {params.Select_test == 'Komponents' || params.Select_test == "All"}
 			}
 			steps {
-				echo "the test selected was ${params.Select_test}"			
+                myParam = ${params.Select_test}	
+			}
+		} 
+	
+		
+			stage('Unit Tests') {
+			steps {
+					echo "will run the test ${myParam}"
 			}
 		}	         
         
-    }
+  }
 }
