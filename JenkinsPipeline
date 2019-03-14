@@ -19,7 +19,7 @@ pipeline {
 				expression {params.Select_test == 'CommonCode' || params.Select_test == "All"}
 			}
 			steps {
-                myParam = ${params.Select_test}
+                $myParam = ${params.Select_test}
 			}
 		}
 
@@ -32,7 +32,7 @@ pipeline {
 				expression {params.Select_test == 'CommonComp' || params.Select_test == "All"}
 			}
 			steps {
-                myParam = ${params.Select_test}
+                $myParam = ${params.Select_test}
 				
 			}
 		}
@@ -47,7 +47,7 @@ pipeline {
 				expression {params.Select_test == 'Infra' || params.Select_test == "All"}
 			}
 			steps {
-               myParam = ${params.Select_test}
+               $myParam = ${params.Select_test}
 			}
 		}
 
@@ -60,7 +60,7 @@ pipeline {
 				expression {params.Select_test == 'Komponents' || params.Select_test == "All"}
 			}
 			steps {
-                myParam = ${params.Select_test}	
+                $myParam = ${params.Select_test}	
 			}
 		} 
 	
